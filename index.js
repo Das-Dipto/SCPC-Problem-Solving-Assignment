@@ -130,33 +130,57 @@
 
 // Task 7: Implement a function that converts a Roman numeral to an integer. The function should take a Roman numeral string (e.g., "IX" or "XXI") as input and return the corresponding integer value.
 
-function romanToInt(roman) {
-    const romanNumeralMap = {
-      I: 1,
-      V: 5,
-      X: 10,
-      L: 50,
-      C: 100,
-      D: 500,
-      M: 1000
-    };
+// function romanToInt(roman) {
+//     const romanNumeralMap = {
+//       I: 1,
+//       V: 5,
+//       X: 10,
+//       L: 50,
+//       C: 100,
+//       D: 500,
+//       M: 1000
+//     };
   
-    let result = 0;
-    for (let i = 0; i < roman.length; i++) {
-      const current = romanNumeralMap[roman[i]];
-      const next = romanNumeralMap[roman[i + 1]];
+//     let result = 0;
+//     for (let i = 0; i < roman.length; i++) {
+//       const current = romanNumeralMap[roman[i]];
+//       const next = romanNumeralMap[roman[i + 1]];
   
-      if (next && current < next) {
-        result += next - current;
-        i++;
-      } else {
-        result += current;
+//       if (next && current < next) {
+//         result += next - current;
+//         i++;
+//       } else {
+//         result += current;
+//       }
+//     }
+  
+//     return result;
+//   }
+  
+//   console.log(romanToInt("IX"));
+//   console.log(romanToInt("XXI"));
+//   console.log(romanToInt("XIV"));
+
+
+
+// Task 8: Implement a JavaScript function to find the second smallest element in an array of numbers. The function should return the second smallest number.
+
+function secondSmallestElement(arr) {
+    let smallest = Infinity;
+    let secondSmallest = Infinity;
+  
+    for (let num of arr) {
+      if (num < smallest) {
+        secondSmallest = smallest;
+        smallest = num;
+      } else if (num < secondSmallest && num !== smallest) {
+        secondSmallest = num;
       }
     }
   
-    return result;
+    return secondSmallest;
   }
   
-  console.log(romanToInt("IX"));
-  console.log(romanToInt("XXI"));
-  console.log(romanToInt("XIV"));
+  console.log(secondSmallestElement([1, 5, 2, 8, 3, 7, 6, 4]));
+  console.log(secondSmallestElement([4, 5, 6, 9, 12, 1, 11, 3]));
+  console.log(secondSmallestElement([180, , 183, 188, 185, 187, 186, 184]));
