@@ -59,26 +59,49 @@
 
 // Task 4: Create a function that takes a sorted array of numbers and a target value as input. The function should find two numbers in the array that add up to the target value. Return an array containing the indices of the two numbers.
 
-function findTwoNumbersWithSum(arr, target) {
-    let left = 0;
-    let right = arr.length - 1;
+// function findTwoNumbersWithSum(arr, target) {
+//     let left = 0;
+//     let right = arr.length - 1;
   
-    while (left < right) {
-      const sum = arr[left] + arr[right];
+//     while (left < right) {
+//       const sum = arr[left] + arr[right];
   
-      if (sum === target) {
-        return [left, right];
-      } else if (sum < target) {
-        left++;
-      } else {
-        right--;
-      }
+//       if (sum === target) {
+//         return [left, right];
+//       } else if (sum < target) {
+//         left++;
+//       } else {
+//         right--;
+//       }
+//     }
+  
+//     // If no such pair is found, return an empty array
+//     return [];
+//   }
+  
+//   console.log(findTwoNumbersWithSum([1, 3, 6, 8, 11, 15], 9));
+//   console.log(findTwoNumbersWithSum([1, 8, 6, 8, 11, 15], 9));
+//   console.log(findTwoNumbersWithSum([1, 10, 4, 8, 11, 15], 9));
+
+
+
+// Task 5: Implement a simple JavaScript calculator. The calculator should take two numbers and an operator (+, -, *, /) as input and return the result of the operation.
+
+function calculator(num1, operator, num2) {
+    switch (operator) {
+      case "+":
+        return num1 + num2;
+      case "-":
+        return num1 - num2;
+      case "*":
+        return num1 * num2;
+      case "/":
+        return num1 / num2;
+      default:
+        return "Invalid operator";
     }
-  
-    // If no such pair is found, return an empty array
-    return [];
   }
   
-  console.log(findTwoNumbersWithSum([1, 3, 6, 8, 11, 15], 9));
-  console.log(findTwoNumbersWithSum([1, 8, 6, 8, 11, 15], 9));
-  console.log(findTwoNumbersWithSum([1, 10, 4, 8, 11, 15], 9));
+  console.log(calculator(10, "+", 5));
+  console.log(calculator(10, "*", 2));
+  console.log(calculator(10, "/", 2));
