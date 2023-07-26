@@ -110,17 +110,53 @@
 
 //   Task 6: Create a program that generates a random password of a specified length. The password should include a mix of uppercase letters, lowercase letters, numbers, and special characters.
 
-function generateRandomPassword(length) {
-    const charset =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
-    let password = "";
-    for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * charset.length);
-      password += charset[randomIndex];
+// function generateRandomPassword(length) {
+//     const charset =
+//       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+//     let password = "";
+//     for (let i = 0; i < length; i++) {
+//       const randomIndex = Math.floor(Math.random() * charset.length);
+//       password += charset[randomIndex];
+//     }
+//     return password;
+//   }
+  
+//   console.log(generateRandomPassword(12));
+//   console.log(generateRandomPassword(10));
+//   console.log(generateRandomPassword(8));
+
+
+
+
+// Task 7: Implement a function that converts a Roman numeral to an integer. The function should take a Roman numeral string (e.g., "IX" or "XXI") as input and return the corresponding integer value.
+
+function romanToInt(roman) {
+    const romanNumeralMap = {
+      I: 1,
+      V: 5,
+      X: 10,
+      L: 50,
+      C: 100,
+      D: 500,
+      M: 1000
+    };
+  
+    let result = 0;
+    for (let i = 0; i < roman.length; i++) {
+      const current = romanNumeralMap[roman[i]];
+      const next = romanNumeralMap[roman[i + 1]];
+  
+      if (next && current < next) {
+        result += next - current;
+        i++;
+      } else {
+        result += current;
+      }
     }
-    return password;
+  
+    return result;
   }
   
-  console.log(generateRandomPassword(12));
-  console.log(generateRandomPassword(10));
-  console.log(generateRandomPassword(8));
+  console.log(romanToInt("IX"));
+  console.log(romanToInt("XXI"));
+  console.log(romanToInt("XIV"));
