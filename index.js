@@ -17,19 +17,40 @@
 
 // Task-2: Create a function that takes an array of numbers as input and returns the sum of all positive numbers in the array. 
 
-function sumOfPositiveNumbers(arrayOfNums) {
-    let sum = 0;
-    for (let num of arrayOfNums) {
-      if (num > 0) {
-        sum += num;
+// function sumOfPositiveNumbers(arrayOfNums) {
+//     let sum = 0;
+//     for (let num of arrayOfNums) {
+//       if (num > 0) {
+//         sum += num;
+//       }
+//     }
+//     return sum;
+//   }
+  
+//   console.log(sumOfPositiveNumbers([2, -5, 10, -3, 7]));
+//   console.log(sumOfPositiveNumbers([2, -5, 40, -3, -7]));
+//   console.log(sumOfPositiveNumbers([2, 15, -10, -3, 5]));
+
+
+
+// Task 3: Write a JavaScript program to find the most frequent element in an array and return it. 
+
+function mostFrequentNumber(nums) {
+    let counts = {};
+    let maxCount = 0;
+    let mostFrequentNum;
+  
+    for (let num of nums) {
+      counts[num] = (counts[num] || 0) + 1;
+      if (counts[num] > maxCount) {
+        maxCount = counts[num];
+        mostFrequentNum = num;
       }
     }
-    return sum;
+  
+    return mostFrequentNum;
   }
   
-  console.log(sumOfPositiveNumbers([2, -5, 10, -3, 7]));
-  console.log(sumOfPositiveNumbers([2, -5, 40, -3, -7]));
-  console.log(sumOfPositiveNumbers([2, 15, -10, -3, 5]));
-
-
-
+  console.log(mostFrequentNumber([3, 5, 2, 5, 3, 3, 1, 4, 5]));
+  console.log(mostFrequentNumber([4, 4, 4, 4, 3, 3, 3, 2, 2]));
+  console.log(mostFrequentNumber([6, 5, 8, 7, 2, 2, 3, 3, 1]));
