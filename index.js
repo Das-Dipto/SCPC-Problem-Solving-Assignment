@@ -35,22 +35,50 @@
 
 // Task 3: Write a JavaScript program to find the most frequent element in an array and return it. 
 
-function mostFrequentNumber(nums) {
-    let counts = {};
-    let maxCount = 0;
-    let mostFrequentNum;
+// function mostFrequentNumber(nums) {
+//     let counts = {};
+//     let maxCount = 0;
+//     let mostFrequentNum;
   
-    for (let num of nums) {
-      counts[num] = (counts[num] || 0) + 1;
-      if (counts[num] > maxCount) {
-        maxCount = counts[num];
-        mostFrequentNum = num;
+//     for (let num of nums) {
+//       counts[num] = (counts[num] || 0) + 1;
+//       if (counts[num] > maxCount) {
+//         maxCount = counts[num];
+//         mostFrequentNum = num;
+//       }
+//     }
+  
+//     return mostFrequentNum;
+//   }
+  
+//   console.log(mostFrequentNumber([3, 5, 2, 5, 3, 3, 1, 4, 5]));
+//   console.log(mostFrequentNumber([4, 4, 4, 4, 3, 3, 3, 2, 2]));
+//   console.log(mostFrequentNumber([6, 5, 8, 7, 2, 2, 3, 3, 1]));
+
+
+
+// Task 4: Create a function that takes a sorted array of numbers and a target value as input. The function should find two numbers in the array that add up to the target value. Return an array containing the indices of the two numbers.
+
+function findTwoNumbersWithSum(arr, target) {
+    let left = 0;
+    let right = arr.length - 1;
+  
+    while (left < right) {
+      const sum = arr[left] + arr[right];
+  
+      if (sum === target) {
+        return [left, right];
+      } else if (sum < target) {
+        left++;
+      } else {
+        right--;
       }
     }
   
-    return mostFrequentNum;
+    // If no such pair is found, return an empty array
+    return [];
   }
   
-  console.log(mostFrequentNumber([3, 5, 2, 5, 3, 3, 1, 4, 5]));
-  console.log(mostFrequentNumber([4, 4, 4, 4, 3, 3, 3, 2, 2]));
-  console.log(mostFrequentNumber([6, 5, 8, 7, 2, 2, 3, 3, 1]));
+  console.log(findTwoNumbersWithSum([1, 3, 6, 8, 11, 15], 9));
+  console.log(findTwoNumbersWithSum([1, 8, 6, 8, 11, 15], 9));
+  console.log(findTwoNumbersWithSum([1, 10, 4, 8, 11, 15], 9));
